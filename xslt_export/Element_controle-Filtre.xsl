@@ -8,7 +8,7 @@
   <!--<xsl:param name="filtre" select="//persname/@role"/>-->
   <xsl:template match="/">
     <xsl:choose>
-      <!-- Modification par ENO en novembre 2024 : ajout d'un premier when pour retour d'une phrase dans le fichier txt en résultat lorsque le filtre interroge un élément EAD interdit par les Bonnes pratiques EAD -->
+      <!-- Modification par ENO en décembre 2024 : ajout d'un premier when pour retour d'une phrase dans le fichier txt en résultat lorsque le filtre interroge un élément EAD interdit par les Bonnes pratiques EAD -->
       <xsl:when test="$filtre/self::abstract | $filtre/self::chronitem | $filtre/self::chronlist | $filtre/self::colspec | $filtre/self::entry | $filtre/self::imprint | $filtre/self::row | $filtre/self::table | $filtre/self::tbody | $filtre/self::tgroup | $filtre/self::thead"> 
         <erreur xsl:exclude-result-prefixes="xsl">Vous avez essayé de sélectionner un élément EAD interdit par les Bonnes pratiques dans le filtre d'export. Voir le site des Bonnes pratiques EAD en bibliothèque pour plus de précision : https://www.ead-bibliotheque.fr/synthese-elements-attributs/</erreur>
       </xsl:when>
