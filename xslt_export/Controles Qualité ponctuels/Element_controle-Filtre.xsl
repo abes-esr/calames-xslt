@@ -1,22 +1,24 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="text" omit-xml-declaration="yes" indent="no" encoding="UTF-8"/>
+  <!-- Cet xslt requière un XPATH défini dans Calames dans le champ "filtre" -->
   <xsl:param name="filtre"/> 
   <!--<xsl:param name="filtre" select="//*/@href"/>-->
- <!-- <xsl:param name="filtre" select="//p"/>-->
+  <!-- <xsl:param name="filtre" select="//p"/>-->
   <!--<xsl:param name="filtre" select="//persname/text()"/>-->
   <!--<xsl:param name="filtre" select="//persname/@*"/>-->
   <!--<xsl:param name="filtre" select="//persname/@role"/>-->
   <xsl:template match="/">
     <xsl:choose>
-      <!-- Modification par ENO en décembre 2024 : ajout d'un premier when pour retour d'une phrase dans le fichier txt en résultat lorsque le filtre interroge un élément EAD interdit par les Bonnes pratiques EAD -->
+      <!-- Premier when pour retour d'une phrase dans le fichier txt en résultat lorsque le filtre interroge un élément EAD interdit par les Bonnes pratiques EAD - Ajout par ENO en novembre 2024 -->
       <xsl:when test="$filtre/self::abstract | $filtre/self::chronitem | $filtre/self::chronlist | $filtre/self::colspec | $filtre/self::entry | $filtre/self::imprint | $filtre/self::row | $filtre/self::table | $filtre/self::tbody | $filtre/self::tgroup | $filtre/self::thead"> 
         <erreur xsl:exclude-result-prefixes="xsl">Vous avez essayé de sélectionner un élément EAD interdit par les Bonnes pratiques dans le filtre d'export. Voir le site des Bonnes pratiques EAD en bibliothèque pour plus de précision : https://www.ead-bibliotheque.fr/synthese-elements-attributs/</erreur>
       </xsl:when>
       <xsl:when test="$filtre != ''">
-        <!-- Modification par ENO en novembre 2024 des intitulés de colonne : Path devient Chemin en EAD, Contexte devient ID du composant et Valeur devient Contenu textuel -->
+        <!-- Intitulés des colonnes en première ligne - Modification par ENO en novembre 2024 : Path devient Chemin en EAD, Contexte devient ID du composant et Valeur devient Contenu textuel -->
           <xsl:text>Chemin en EAD ¤ ID du composant ¤ Attribut(s) ¤ Contenu textuel </xsl:text>
         <xsl:value-of select="'&#10;'"/>
         <xsl:for-each select="$filtre">
+          <!-- Création du contenu de la 1re colonne par catégories : élément, PCData ou attribut selon la construction de l'xpath -->
           <xsl:call-template name="filtre">
             <xsl:with-param name="type">
               <xsl:choose>
@@ -26,7 +28,9 @@
               </xsl:choose>
             </xsl:with-param>
           </xsl:call-template>
+          <!-- Insertion du séparateur entre 1re et 2e colonne -->
           <xsl:text> ¤ </xsl:text>
+          <!-- Création du contenu de 2e colonne par catégories : élément, PCData ou attribut selon la construction de l'xpath-->
           <xsl:call-template name="contexte">
             <xsl:with-param name="type">
               <xsl:choose>
@@ -38,6 +42,7 @@
           </xsl:call-template>
         </xsl:for-each>
       </xsl:when>
+      <!-- message type si aucune réponse au xpath -->
       <xsl:otherwise>
         <erreur xsl:exclude-result-prefixes="xsl">Etes-vous sûr de la bonne construction de l'xpath
           saisi dans le champ "Filtre" de la fenêtre d'export ? Avez-vous bien modifié la valeur du
@@ -48,6 +53,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  <!-- Template pour constuire le chemin précis complet, y compris la position entre crochets dans la fratrie, qui alimente la 1re colonne-->
   <xsl:template name="filtre">
     <xsl:param name="type"/>
     <xsl:choose>
@@ -79,24 +85,28 @@
       </xsl:when>
     </xsl:choose>
   </xsl:template>
+  <!-- Template pour alimenter les colonnes suivantes -->
   <xsl:template name="contexte">
     <xsl:param name="type"/>
+    <!--déterminer l'ID du composant concerné qui alimente la 2e colonne : Modification par ENO en novembre 2024 pour ne récupérer que la valeur d'ID et non l'attribut -->
     <xsl:choose>
       <xsl:when test="./ancestor::c[1]">
-        <!-- Modification par ENO en novembre 2024 pour récupération uniquement de la valeur d'ID de <c> -->
         <xsl:value-of select=".//ancestor::c[1]/@id"/>
         </xsl:when>
       <xsl:when test="./ancestor-or-self::archdesc[1]">
         <xsl:text>archdesc</xsl:text>
       </xsl:when>
     </xsl:choose>
+    <!-- Insertion du séparateur entre 2e et 3e colonne -->
     <xsl:text> ¤ </xsl:text>
+    <!-- contenu de la 3e colonne : les attributs et leur valeur -->
     <xsl:for-each select="@* | self::node()[$type='attribut']">
       <xsl:sort select="name(.)" data-type="text"/>      
       <xsl:text>[</xsl:text> <xsl:apply-templates select="."/>  <xsl:text>]</xsl:text>      
     </xsl:for-each>
-    
+    <!-- Insertion du séparateur entre 3e et 4e colonne -->
     <xsl:text> ¤ </xsl:text>
+    <!-- contenu de la dernière : le PCData -->
     <xsl:choose>
       <xsl:when
         test="normalize-space(.//text() != '' or text() != '') and ($type = 'element' or $type = 'texte')">
@@ -113,6 +123,7 @@
       </xsl:when>
       <xsl:when test="$type = 'attribut'"/>
     </xsl:choose>
+    <!-- retour charriot pour alimenter la ligne suivante -->
     <xsl:value-of select="'&#10;'"/>
   </xsl:template>
   <xsl:template match="@*">
