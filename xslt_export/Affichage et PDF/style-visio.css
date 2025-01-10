@@ -1,0 +1,1441 @@
+/**************************************************/
+/************                          ************/
+/************ Feuille de style Calames ************/
+/************                          ************/
+/**************************************************/
+
+/* css appellé par modele export IRComplet_htmlpourpdf  */
+/* css publié avec le modele d'export sur le github public de l'Abes */
+
+/* ---- BODY ---- */
+body {
+	margin: 0;
+	padding: 0;
+	font: 0.7em Geneva, Helvetica, Arial, sans-serif;
+	background-color: #4a0606;
+}
+/* ---- TITRE ---- */
+h2 {
+	color: #498BFE;
+}
+h3 {
+	color: #C65C17;
+	font-weight: normal;
+	font-size: 13px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+/* pour pouvoir attribuer ce style a differentes élément EAD : span, p...(besoin pour i18n)*/
+ .h3 {
+            color: #C65C17;
+	        font-weight: normal;
+	        font-size: 13px;
+	        font-family: Geneva, Arial, Helvetica, sans-serif;
+        }
+
+
+h5, h6 {
+	margin: 0px;
+	font-size:11px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight:normal;
+}
+h5 {
+	font-size:12px;
+	font-weight:normal;
+}
+/* ---- LIENS ---- */
+a {
+	color: #555;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+/* ---- RESET ---- */
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+img {
+	border:0;
+	margin:0 2px;
+}
+/* ---- Balise html pre ---- */
+pre {
+	font-size:10px;
+}
+
+
+/*  ----  Container principal ----*/
+.conteneur {
+	position:relative;
+	width: 804px;
+	padding: 0px;
+	border: 1px;
+	border-bottom: solid 1px white;
+	background: #fff;
+	margin:  0px auto 0px auto;
+}
+
+#langbarre {
+    position: absolute;
+    right:10px;
+    margin:3px;
+    }
+
+
+/**************************************************/
+/************       PAGE ENTETE        ************/
+/**************************************************/
+#entete {
+	/*background: url(../images/calames-entete.jpg) no-repeat bottom center;*/
+	background-image: url(../images/calames-entete.jpg);
+    background-repeat: no-repeat;
+    background-position:bottom center;
+	background-color:#FFFFFF;
+	text-indent: -5000px;
+	width: 804px;
+	height: 135px; /* 120px (ACT) provoque chevauchement avec blocAuth */
+	border-bottom: 1px solid #000;
+	margin-bottom: 10px;
+	padding:0px;
+}
+/*  ----  indeterminer ----*/
+.imagesCgm {
+	max-width: 100%;
+ _width: expression(Math.min(parseInt(this.offsetWidth), 500 ) + "px");
+}
+
+
+
+
+
+
+/**************************************************/
+/************  PAGE NOEUD SELECTIONNE  ************/
+/**************************************************/
+
+/* ---- Page de visualisation d'un resultat  ---- */
+#selection {
+	float:left;
+	width:774px;
+	background-color:#FFFFFF;
+	padding-left:30px;
+	border-top:solid 1px #cccccc;
+}
+#selection h3 {
+	color: #3e1805;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+/* ---- resultat precedent ---- */
+#selG {
+	float:left;
+	height:200px;
+	padding-top:150px;
+	padding-right:5px;
+	margin-right:10px;
+	background-image:url(../images/ombre-prev.gif);
+	background-position:center right;
+	background-repeat:no-repeat;
+}
+/* ---- infomations sur l'article selectionn ---- */
+#detail {
+	float:left;
+	width:510px;
+}
+/* ---- resultat precedent ---- */
+#selD {
+	float:left;
+	height:200px;
+	padding-top:150px;
+	padding-left:5px;
+	margin-left:5px;
+	background-image:url(../images/ombre-next.jpg);
+	background-position:center left;
+	background-repeat:no-repeat;
+}
+/* ---- Boite a outil ---- */
+.toolBox2 {
+	float:right;
+	width:175px;
+	background-color: #fafafa;
+	text-align:left;
+}
+/* ---- Titre rubrique resultat de la boite a outil ---- */
+.resultatOutils {
+	background-color:#A40C0C;
+	padding: 5px 0px 5px 20px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#ffffff;
+}
+/* ---- Contenu de la rubrique resultat de la boite a outil ---- */
+#resultP, #resultS, #lnkResultat {
+	background-repeat:no-repeat;
+	padding: 3px 0px 5px 25px;
+	margin: 0px 0px 0px 20px;
+}
+/* ---- Lien retour aux rsultats ---- */
+#lnkResultat, #lnkResultat a, #lnkResultat a:hover {
+	color: #4F2D1D;
+	height: 40px;
+}
+/* ---- Contenu de la rubrique resultat de la boite a outil ---- */
+/* ---- retour resultat ---- */
+.lnkResultat {
+	margin: 0px 0px 15px 0px;
+}
+#lnkResultat {
+	background-image:url(../images/resultats.gif);
+}
+/* ---- resultat suivant ---- */
+.resultS {
+	margin: 20px 0px 20px 0px;
+}
+#resultS {
+	background-image:url(../images/result-suiv.gif);
+}
+/* ---- resultat precedent ---- */
+.resultP {
+	margin: 15px 0px 0px 0px;
+}
+#resultP {
+	background-image:url(../images/result-prev.gif);
+}
+/* ---- nombre resultat ---- */
+#resultPos {
+	margin: 0px 0px 10px 20px;
+}
+/* ---- Boite a outil seconde rubrique---- */
+#RealToolBox {
+	background-color:#C65C17;
+	padding: 5px 0px 5px 20px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#ffffff;
+}
+#RealToolBoxCpt {
+	background-color: #fafafa;
+	margin-left: 10px;
+	font-size: 11px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	padding-bottom: 20px;
+}
+#RealToolBoxCpt a {
+	color: #333;
+	text-decoration: none;
+}
+#RealToolBoxCpt a:hover {
+	color: #111;
+	text-decoration: underline;
+}
+#resultatCpt {
+	background-image: url(../images/compte-fond.jpg);
+	background-repeat: repeat-x;
+	font-size: 12px;
+	color: #fff;
+	padding-top: 3px;
+	padding-left: 10px;
+	height: 24px;
+}
+#listCom li {
+	list-style-type: decimal;
+	list-style-position: inside;
+	background-image: url(../images/commentaire-fond.jpg);
+	background-repeat: repeat-y;
+	background-position: right;
+	background-color: #fff;
+	padding: 15px;
+	margin-bottom: 10px;
+	width: 500px;
+	border: 1px solid #eee;
+	font-size: 11px;
+	color: #444;
+}
+#listCom li a {
+	font-weight: normal;
+	text-decoration: none;
+}
+#listCom li a:hover {
+	color: #222;
+	text-decoration: underline;
+}
+/* ---- Structure du contenu de la boite a outils ---- */
+#lesOutils {
+	padding: 0px 0px 0px 15px;
+	margin: 10px 0px 0px 0px;
+}
+/* ----Element de la boite a outils + element impression ---- */
+.outil1, .outil1 a, .outil1 a:hover, .outil2, .outil3, .outil4, .outil5, .outil6, .outil7, .outil7 a, .outil9 {
+	display:block;
+	width: 120px;
+	color: #e15e08;
+	padding: 5px 0px 5px 35px;
+	margin-bottom: 10px;
+	text-decoration:none;
+	background-image:url(../images/printer.gif);
+	background-position:left;
+	background-repeat:no-repeat;
+}
+/* ----Element lien perenne de la boite a outils ---- */
+.outil2, .outil2 a, .outil2 a:hover {
+	color: #e15e08;
+	background-image:url(../images/lienPerenne.gif);
+}
+
+/* ----Element lien mailto de la boite a outils (olga)---- */
+.outil7, .outil7 a, .outil7 a:hover {
+	color: #e15e08;
+	/*width: 120px;*/
+	padding: 5px 0px 5px 35px;
+	/*margin-bottom: 10px;
+	text-decoration:none; */
+	/*background-image:url(../images/corresp.gif);*/	
+	background-image:url(../images/arobase.gif);
+	/*background-position:left;
+	background-repeat:no-repeat;*/
+}
+
+
+/* ----Element tout deplier de la boite a outils ---- */
+.outil3, .outil3 a, .outil3 a:hover {
+	color: #e15e08;
+	background-image:url(../images/deplierTout.gif);
+}
+/* ----Element nuage de mot sujet de la boite a outils ---- */
+.outil4, .outil4 a, .outil4 a:hover {
+	color: #e15e08;
+	background-image:url(../images/nuage2.gif);
+}
+/* ----Element nuage de mot personne de la boite a outils ---- */
+.outil5, .outil5 a, .outil5 a:hover {
+	color: #e15e08;
+	background-image:url(../images/nuage3.gif);
+}
+/* ----Element image 'liber floridus' de la boite a outils ---- */
+.outil6, .outil6 a, .outil6 a:hover {
+	color:#E07E12;
+	background-image:url(../images/liber.gif);
+}
+/* ----Element de la boite a outils ---- */
+.outil1 a:hover, .outil2 a:hover, .outil3 a:hover, .outil6 a:hover, .outil7 a:hover {
+	color: #e15e08;
+	text-decoration: underline;
+}
+
+	  /* ----Element de la boite a outils ---- */
+       .outil9, .outil9 a, .outil9 a:hover {	    
+	     color:  #e15e08;
+	    background-image:url(../images/caddie.jpg);
+    }
+	
+/* ---- Troisieme rubrique de la boite a outils : sommaire ---- */
+.outilResultat {
+	clear:both;
+	background-color:#8EBC3C;
+	background-image:url(../images/arborescence.gif);
+	background-position:right;
+	background-repeat:no-repeat;
+	padding: 5px 0px 5px 20px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#ffffff;
+}
+/* ---- structure du contenu du resultat balise html UL ---- */
+#detail ul {
+	list-style: none;
+	padding-top:5px;
+}
+/* ---- structure du contenu du resultat balise html LI ---- */
+#detail li {
+	position:relative;
+	list-style: none;
+	padding-top:5px;
+}
+/* ---- Icones de droite inclues dans le bloc enfant ---- */
+.fonction {
+	position:absolute;
+	top:3px;
+	right:10px;
+}
+* html .fonction {
+	right:35px;
+}
+/* ---- Icones de gauche inclues dans le bloc enfant ---- */
+.fonctionG {
+	position:absolute;
+	top:3px;
+	left:10px;
+}
+/* ---- Indeterminer ---- */
+#posFrere {
+	padding-top:10px;
+}
+/* ---- Infomation de type titre sur l'article en cours ---- */
+.intitule {
+	font-size:1.2em;
+	font-weight:bold;
+	text-align:center;
+	text-decoration:none;
+	/*margin-top:10px;*/
+	/*margin-bottom:10px;*/
+	background-image:url(../images/calames-logo-visio.jpg);
+	background-position:left top;
+	background-repeat:no-repeat;
+	padding: 10px 0px 70px 10px;
+	/*min-height: 41px;*/ /*olga pour que le backgraound image soit toujours visible meme si pas de texte dans la div intitule */
+}
+/* ---- Infomation de type contenu sur l'article en cours ---- */
+.contain {
+	margin-left:10px;
+	/*margin-top: 41px;*/
+	/*padding-bottom:10px*/;
+}
+/* ---- Note de manuscrit absent ---- */
+.important 
+{
+    color:#A40C0C;
+    font-size:14px;
+    font-weight:bold;
+    border:2px solid #000000;
+    padding:3px;
+}
+/* ---- Dao et daogrp rebonds / Ajout JMF dec 2011 ---- */
+.numerisation 
+{
+    font-size:12px;
+    font-weight:bold;
+}
+/* ---- Type de document Genreform / Ajout JMF 4nov2011  ---- */
+.typeDocument
+{
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* ---- Type de document Genreform / Ajout JMF 4nov2011  ---- */
+.lienExterne
+{
+	color:#2B60DE;
+	text-decoration:underline
+}
+
+/* ---- Article parent ---- */
+.listeAncetre {
+	margin-left:10px;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+/* ---- Premier article parent ---- */
+.titleAncetrePrem {
+	font-size:14px;
+	color:#A40C0C;
+}
+/* ---- Dernier article parent ---- */
+.ancetreBottom {
+	position:relative;
+	padding-bottom:15px;
+	margin-left:10px;
+	margin-bottom:0px;
+	margin-top:0px;
+	background-image:url(../images/ombre-top.gif);
+	background-position:center bottom;
+	background-repeat:no-repeat;
+}
+/* ---- cote de l'article parent ---- */
+.coteAncetre {
+	margin-right:5px;
+	color: #4A1A00;
+	font-weight: normal;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+/* ---- Titre de l'article parent ---- */
+.titleAncetre {
+	font-size: 11px;
+	color: #4A1A00;
+	font-weight: normal;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+/* ---- Information sur la bibliotheque visualisee ---- */
+.intituleEtab {
+	margin: 0px 0px 0px 0px;
+}
+/* ---- cote de la bibliotheque visualisee ---- */
+.intituleEtab .cote {
+	color:#A40C0C;
+	font-size:11px;
+	margin: 0px 10px 0px 50px;
+}
+/* ---- titre de la bibliotheque visualisee ---- */
+.intituleEtab .title {
+	display:block;
+	background-image:url(../images/result-select.gif);
+	background-position:left center;
+	background-repeat:no-repeat;
+	color:#A40C0C;
+	font-size:13px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	padding: 15px 0px 15px 50px;
+}
+#etab .controlC {
+	color: #A40C0C;
+}
+/* ---- information de la bibliotheque visualisee ---- */
+/* .controlCEtab {	color: #A40C0C; } */
+
+/* ---- cote de larticle en cours de visualisation ---- */
+.cote {
+	margin-right:5px;
+}
+
+/*------ cote_unique de la notice en cours de visualisation (olga) ---*/
+.cote_unique {
+	font-weight: bold;
+}
+	
+/* ---- titre de larticle en cours de visualisation ---- */
+.title {
+	font-size: 30px;
+	color: #C65C17;
+	font-weight: normal;
+}
+/* ---- information de larticle en cours de visualisation ---- */
+.controlC {
+	color: #C65C17;
+	width :150px;
+	line-height: 16px;
+	margin-left: 0,5px;
+}
+.controlCRepository{
+	color: #C65C17;
+	font-size: 16 px;
+	width :150px;
+	line-height: 16px;
+	margin-left: 0,5px;
+}
+/* ---- test JMF genreform non cliquables mars 2012 ---- */
+.controlCNoClic {
+	width :150px;
+	line-height: 16px;
+	margin-left: 0px;
+}
+.eadtitle {
+	font-style: italic;
+}
+/* Tableau des control access*/
+.accesstable {
+	padding-top: 10px;
+}
+/* ---- liste des enfant de l'article en cours de visualisation ---- */
+.enfant ul {
+	width:108.15%;
+}
+/* ---- information des enfant de l'article en cours de visualisation ---- */
+.enfant .contain {
+	width:100%;
+}
+*html .enfant ul, .enfant .contain {
+	width:auto;
+}
+/* ---- cote de lenfant en cours de visualisation ---- */
+.enfant .cote {
+	margin-right:5px;
+	font-size: 11px;
+	color: #4A1A00;
+}
+/* ---- titre de lenfant en cours de visualisation ---- */
+.enfant .title {
+	font-size: 15px;
+	color: #4A1A00;
+	font-weight: normal;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+/* ---- hacvk internet explorer ---- */
+* html .enfant .title {
+	display:inline-block;
+}
+* html .enfant .title, * html .enfant .cote {
+	margin-left:35px;
+}
+/* ---- information de lenfant en cours de visualisation ---- */
+.enfant .controlC {
+	color: #4A1A00;
+	line-height: 16px;
+	margin-left: 0px;
+}
+/* ---- image de l'article enfant en cours de visualisation ---- */
+
+.lf img {
+	margin-top:10px;
+	padding:3px;
+	clear:left;
+	width:120px;
+	height:auto;
+	border:solid 1px #C65C17;
+	z-index:0;
+}
+
+/* ---- Liste des enfants ---- */
+.enfant li {
+	position:relative;
+	/* ERM decembre 2024 
+	 * border: 3px solid #848484;*/
+	border: 2px solid #848484;
+	margin-bottom:10px;
+	padding: 5px 60px 5px 0px;
+}
+/* ---- Liste des enfantsau survol  ---- */
+.enfant li a:hover {
+	text-decoration:none;
+}
+/* ---- Information (contenu) des enfants  ---- */
+.enfant .contain {
+	/*  ERM décembre 2024
+	 * margin-top:5px; */
+	 margin-top:10px;
+	margin-left:5px;
+	background-color:#fff;
+	/*border: 1px solid #D7C9C2;*/
+	padding:2px;
+	color:#424242;
+}
+/* ---- enfants ---- */
+.enfant .encart {
+	margin: -5px -60px -5px 0px;
+	/* ERM decembre 2024 ajout d'une marge supérieure plus importante dans les encards avant chaque C pour aérer 
+	 *  padding: 5px 15px 5px;  */
+	padding: 20px 15px 5px;
+	background-color:#F3F0EF;
+}
+/* ---- enfants encart ---- */
+.enfant .encart {
+/* ERM decembre 2024 
+	 * margin: -5px -60px -5px 0px;
+	 * padding: 5px 15px 5px;  */	
+	 
+	margin: -3px -60px -5px 0px;
+	padding: 10px 15px 5px;
+	background-color:#F3F0EF;
+}
+
+/* ---- hack IE ---- */
+* html .enfant .txtNbEnf, * html .enfant .contain {
+	margin-left:40px;
+	margin-right:10px;
+}
+* html .enfant .pasSouligne {
+	display:inline-block;
+	border: 1px solid #D7C9C2;
+	margin-bottom:10px;
+	margin-left:40px;
+	margin-right:10px;
+	padding: 5px 0px 5px 0px;
+}
+* html .enfant .parentSouligne {
+	display:inline-block;
+	border: 1px solid #D7C9C2;
+	margin-bottom:10px;
+	margin-left:40px;
+	margin-right:10px;
+	padding: 5px 0px 5px 0px;
+}
+* html .enfant .sousligne {
+	display:inline-block;
+	margin-left:40px;
+	margin-right:10px;
+	padding: 5px 0px 5px 0px;
+}
+* html .enfant .encart {
+	width:418px;
+}
+
+
+
+/**************************************************/
+/************    FENETRE LIEN PAGE     ************/
+/**************************************************/
+
+/* ---- Fenetre contenant le lien de la page en cours de visualisation ---- */
+#pBox {
+	position:absolute;
+	width:300px;
+	height:60px;
+	right:10%;
+	top:280px;
+	padding:5px;
+	color: #52240B;
+	border: 1px solid #ECCAB4;
+	background:#F8EFE9;
+	overflow:auto;
+	z-index:1000;
+}
+/*Sert juste pour l'impression*/
+#urlP {
+	color:#fff;
+}
+/**************************************************/
+/************       FENETRE ARBRE      ************/
+/**************************************************/
+
+/* ---- Container de la fenetre de l'arbre ---- */
+#arboModale {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width:2000px;
+	height:2000px;
+	/* fond */
+   background-color:#341E14;
+	opacity : 0.8;
+	-moz-opacity : 0.8;
+	filter : alpha(opacity=80);
+	/*IE
+   filter : alpha(opacity=80); */
+   _width:expression(document.body.clientWidth);
+ _height:expression(document.body.clientHeight);
+	/*background-image:url(../img/fenModale.gif); */
+   z-index:1000;
+}
+/* ---- Structure de fenetre de l'arbre ouvert ---- */
+.arboGd {
+	position:absolute;
+	/*top:5px;*/
+	top:45px;
+	left: 5%;
+	width:630px;
+	background: #fff;
+	border-top: 3px solid #8EBC3C;
+	border-bottom: 3px solid #8EBC3C;
+	overflow:hidden;
+	z-index:2000;
+}
+/* ---- Structure de fenetre de l'arbre ferme ---- */
+.arboRd {
+	position:relative;
+	float:right;
+	clear:right;
+	width:175px;
+	height:350px;
+	background: #fff;
+	border: 0px;
+	overflow:auto;
+	z-index:2000;
+}
+/* ---- Iconer de reduction de l'arbre ---- */
+#lnkCacheArbo {
+	float:right;
+	margin-top:25px;
+	margin-right:20px;
+}
+/* ---- titre de la fenetre de l'arbre ---- */
+#titreArbo {
+	font-size:17px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color:#64A007;
+	padding: 10px 0px 10px 50px;
+	margin-left:25px;
+	background-image:url(../images/arborescence-logo.gif);
+	background-position:left;
+	background-repeat:no-repeat;
+}
+/* ---- Lien vers l'arbre (ouverture) ---- */
+#lnkAffArbo, #lnkAffArbo a, #lnkAffArbo a:hover {
+	color: #ffffff;
+	text-decoration:none;
+	font-size:13px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+/* ---- En commentaire dans le fichier html ---- */
+#lnkSynchroArbo2, #lnkSynchroArbo2 a, #lnkSynchroArbo2 a:hover {
+	float:right;
+	margin-right:10px;
+	color:#64A007;
+	font-weight:bold;
+	text-decoration:none;
+}
+/* ---- En commentaire dans le fichier html ---- */
+#lnkSynchroArbo2 a:hover {
+	text-decoration:underline;
+}
+/* ---- Structure de l'arbre ouvert ---- */
+#arbre {
+	float:left;
+	width:530px;
+	height:550px;
+	margin-left:25px;
+	margin-top:15px;
+	margin-bottom:15px;
+	padding:10px;
+	overflow:auto;
+}
+/* ---- Structure de l'arbre ouvert ---- */
+#arbre ul {
+	/* ERM decembre 2024*/
+	/*border: 3px solid #413839;*/
+	background-color:#F3F0EF;
+	border: 1px solid #413839
+}
+/* ---- Structure de liste l'arbre ---- */
+#arbre ul, li {
+/* ERM decembre 2024 */
+	/*border: 3px solid #000000;	*/
+	list-style: none;	
+
+}
+#arbre li {
+	margin:10px;
+}
+/* ---- Lien de l'arbre ---- */
+#arbre a {
+	text-decoration:none;
+	color:#4A1A00;
+	vertical-align:text-top;
+}
+/* ---- Article en curs de visualisation en surbrillance ---- */
+#arbre .sousligne {
+	background-color:#B9DE77;
+	padding-top:2px;
+}
+/* ---- Survol d'un article dans l'arbre ---- */
+#arbre li a:hover {
+	background-color:#B9DE77;
+}
+/* ---- Indeterminer ---- */
+.nbChilds, .pos {
+	display:none;
+}
+/* ---- Indeterminer ---- */
+.cachArbre {
+	visibility:hidden;
+}
+/* ---- Arbre en position rduite ---- */
+.affReduitArbre {
+	position:absolute;
+	visibility:visible;
+	top:-35px;
+	left:0px;
+	width:250px;
+	overflow:auto;
+}
+/* ---- Structure de arbre en position rduite ---- */
+.affReduitArbre #arbre {
+	padding-left:0px;
+	margin-left:0px;
+}
+.affReduitArbre ul, .affReduitArbre li {
+	border:0px;
+	background-color:#F3F0EF;
+}
+.affReduitArbre .navArb {
+	visibility:hidden;
+}
+.affArbre {
+	position:relative;
+}
+.affArbre .navArb {
+	visibility:visible;
+}
+/**************************************************/
+/************  PIED DE PAGE GENERIQUE  ************/
+/**************************************************/
+
+/* ---- Module pied de page ---- */
+.pied {
+	width:804px;
+	float:left;
+	height:90px;
+	font-size:10px;
+	border-top:3px solid #A24709;
+	line-height:normal;
+	background-color:#FFFFFF;
+}
+* html .pied {
+	float:none;
+}
+/* ---- lien pied de page ---- */
+.pied a {
+	color:#999999;
+	text-decoration:none;
+	font-weight:normal;
+}
+/* ---- lien pied de page au survol ---- */
+.pied a:hover {
+	color:#555555;
+	text-decoration:underline;
+	font-weight:normal;
+}
+/* ---- colonne pied de page ---- */
+.pied dl {
+	float: left;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	margin-top: 1.2em;
+	font-size:11px;
+}
+/* ---- Marge entre les colonne du pied de page ---- */
+.pied .marge {
+	padding-right:40px;
+}
+/* ---- Titre colonne pied de page ---- */
+.pied dt {
+	color:#555555;
+}
+/* ---- contenu colonne pied de page ---- */
+.pied dd {
+	margin: 0.4em 0 0;
+	color:#999999;
+	font-weight:normal;
+}
+/* ---- Marge pied de page ---- */
+.espacePied {
+	width:30px;
+	float:left;
+	height:50px;
+}
+/* ---- Logo pied de page ---- */
+.logoPied {
+	float:left;
+	padding-top:20px;
+}
+/*************************************************************/
+/****  AUTHENTIFICATION, COMMENTAIRES ET IMAGES (ET TAGS) ****/
+/*************************************************************/
+
+/* ---- Bloc d'authentification ---- */
+
+/* 
+ * *** CACHE pour mis en production dc 2011 ****  
+ ***  end CACHE pour mis en production dc 2011 */
+#blocAuth {
+	position: absolute; 
+	top:25px; 
+	right: 0px;
+	width: 150px;
+	height: 70px;
+	background-color: #aaa;
+	background-image: url(../images/blocauth.jpg);
+	background-repeat: repeat-x;
+	border: solid 1px #d5d4d3;
+	padding: 5px;
+	margin-right: 20px;
+	text-align: center;
+	font-size: 11px;
+	line-height: 12px;
+}
+
+
+
+#imgEspace {
+	margin: 4px 0px 3px 0px;
+}
+#motOublie {
+	font-size: 10px;
+	font-style: italic;
+}
+#deconnexion {
+	position: absolute;
+	bottom: 0;
+	left: 4px;
+}
+#profil {
+	font-weight:bold;
+}
+#goToImg {
+	margin-bottom:10px;
+}
+#Panel1 h3, #Panel2 h3, #Panel3 h3 {
+	font-size: 13px;
+	font-weight: normal;
+	color: #3e1805;
+}
+/* ---- Liens aff/cache tags ---- */
+#lnkAffTag, #lnkCacheTag {
+	width:120px;
+	color:#714CD2;
+	padding: 5px 0px 5px 25px;
+	margin-bottom:10px;
+	text-decoration:none;
+	background-image:url(../images/tag.gif);
+	background-position:left;
+	background-repeat:no-repeat;
+}
+#listTags {
+	margin:5px 0px 0px 10px;
+}
+#listTags li {
+	clear:both;
+}
+#txtTag {
+	margin:5px 0px 0px -10px;
+}
+#txtCom, #postInfo {
+	font-family: "Comic Sans MS", Helvetica, Arial;
+	margin-left: 20px;
+}
+#btnAjtCom {
+	margin: 10px 0px 10px 285px;
+}
+#btnAnnulModCom {
+	margin: 10px 0px 10px 285px;
+}
+#btnRepCom {
+	margin-left: 5px;
+}
+#commentaires {
+	margin-bottom:10px;
+}
+#commentaires a
+{
+    text-decoration:underline;
+}
+#commentaires a:hover
+{
+    text-decoration:none;
+}
+#condUtil
+{
+    float:right;
+    margin-right:5px;
+}
+/* ---- Info qui a crit le commentaire ---- */
+#comAide {
+	font-family: Helvetica, Arial;
+	margin: 15px 0px 5px -6px;
+	border-left: 0px solid;
+	padding: 6px 0px 5px 10px;
+	border-color: #C65C17; /*OBSOLETE*/
+	background-color: #d6ae41;
+	color: #fff;
+}
+/* ---- Liens aff/cache commentaires ---- */
+#lnkAffCom, #lnkCacheCom {
+	padding: 0px 3px 5px 40px;
+	margin: 4px 0px 10px 0px;
+
+}
+#lnkAffCom {
+	background-image: url(../images/pliComs.gif);
+	/*background-image:url(../images/depliComs.gif);*/
+   background-position:left;
+	background-repeat:no-repeat;
+	float: left;
+	color: #d58c00;
+}
+#lnkCacheCom {
+	background-image: url(../images/pliComs.gif);
+	background-position: left;
+	background-repeat: no-repeat;
+	float: left;
+	color: #d58c00; /*border-top:solid 1px Gray;
+   border-right:solid 1px Gray;
+   border-left:solid 1px Gray;*/
+}
+#commentaires h3 {
+	font-weight: normal;
+	margin-left: 20px;
+}
+#listCommentaires li {
+	margin-bottom:0px;
+	border-top: 1px dashed #c4c0a6;
+}
+.comNormal, .comExpert {
+	margin-left: -5px;
+	padding: 0px 0px 20px 45px;
+}
+.comNormal {
+	font-family: "Comic Sans MS", Helvetica, Arial;
+}
+.comExpert {
+	font-family: Helvetica, Arial;
+	background-color: #d6ae41;
+	color: #fff;
+}
+.numCom, .comExpert .numCom {
+	background-position: bottom left;
+	background-repeat: no-repeat;
+}
+.numCom {
+	padding: 5px 0px 5px 25px;
+	color: #222;
+	background-image:url(../images/comment.gif);
+	margin-left: 0px;
+}
+.comExpert .numCom {
+	padding: 5px 0px 5px 0px;
+	color: #fff;
+	background-image:url(../images/nocomment.gif);
+	margin-left: 0px;
+}
+.userDit {
+	color: #222;
+}
+
+/* olga pour cacher numero de mois de commentaire */
+.numMois {
+display: none;
+}
+
+.comExpert .userDit {
+	color: #fff;
+}
+.userDit, .comExpert .userDit {
+	font-weight: bold;
+	padding: 5px 0px 8px 0px;
+}
+.userDit a {
+	color: #222;
+	text-decoration: none;
+}
+.comExpert .userDit a {
+	color: #fff;
+	text-decoration: none;
+}
+.userDit a:hover, .comExpert .userDit a:hover {
+	text-decoration: underline;
+}
+/* ---- Liens mod/suppr commentaires ---- */
+
+.utiCommentaire, .comExpert .utiCommentaire {
+	font-family: Helvetica, Arial;
+	margin-top: 10px;
+}
+.utiCommentaire {
+	color: #222;
+}
+.comExpert .utiCommentaire {
+	color: #fff;
+}
+.comExpert .comTxtExpert a {
+	color: #fff;
+	text-decoration: none;
+}
+.comExpert .comTxtExpert a:hover {
+	text-decoration: underline;
+}
+.hautCom {
+	float: right;
+	margin-right: 10px;
+	background: transparent;
+}
+.comExpert .repCom, .comExpert .repCom a, .comExpert .profCom, .comExpert .profCom a, .comNormal .repCom, .comNormal .repCom a, .comNormal .profCom, .comNormal .profCom a {
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 15px;
+	text-decoration: none;
+}
+.comExpert .repCom, .comExpert .repCom a, .comExpert .profCom, .comExpert .profCom a {
+	background-image: url(../images/expFleche.gif);
+	color: #fff;
+}
+.comNormal .repCom, .comNormal .repCom a, .comNormal .profCom, .comNormal .profCom a {
+	background-image: url(../images/repFleche.gif);
+	color: #a2784d;
+}
+.comNormal .profCom, .comNormal .profCom a, .comExpert .profCom, .comExpert .profCom a {
+	margin-left: 20px;
+}
+.comNormal a:hover, .comExpert a:hover {
+	text-decoration: underline;
+}
+#coms 
+{
+	font-family: Helvetica, Arial;
+	background-color: #fdf9d4;
+	margin:5px 5px 10px 0px;
+	padding: 5px 0px 10px 6px;
+	color: #555;
+	background-image: url(../images/comment-coin.gif);
+	background-position: top right;
+	background-repeat: no-repeat;	
+}
+#lnkCacheCom3 {
+	float:right;
+	position:relative;
+	margin-right: 5px;
+}
+#blocAuth a {
+	color: #222;
+}
+#blocAuth a:hover {
+	color: #222;
+	text-decoration: underline;
+	background: none;
+}
+#titrCommentaires {
+	font-family: "Comic Sans MS", Helvetica, Arial;
+	color: #222;
+	font-size: 16px;
+	font-weight: normal;
+	background-image: url(../images/comment-titre.gif);
+	background-position:left;
+	background-repeat:no-repeat;
+	padding: 5px 0px 5px 45px;
+}
+.gestCommentaire {
+	text-align: right;
+	margin: 5px 10px 0px 0px;
+}
+/* ---- Boite a outils - rubrique commentaires---- */
+
+#resultatCom 
+{
+    clear: both;
+	background-color: #f1ebab;
+	padding: 5px 0px 5px 20px;
+	font-family: "Comic Sans MS", Helvetica, Arial;
+	font-size:13px;
+	color:#222;
+	display: none; /* olga 24/11/10, pour la version de production*/
+}
+#lnkCom {
+	padding: 0px 0px 0px 15px;	
+	background-color: #fffef3;
+}
+/* ---- Liens flux rss Fond et Composant (Profil.aspx) ---- */
+a#rssFd, a#rssFd:hover, a#rssCom, a#rssCom:hover {
+	/*position:absolute;
+    right:125px;*/ 
+    padding: 2px 0px 5px 40px;
+    margin-bottom: 10px; 
+    background-image: url(../images/rss.gif);
+	background-position: left;
+	background-repeat: no-repeat;
+	color: #d58c00;
+	float: left;/*OXY0902*/
+}
+/* ---- Liens flux rss Personne (Profil.aspx) ---- */
+a#rssPers, a#rssPers:hover {
+	/*position:absolute;
+    right:125px;*/ 
+    padding: 0px 0px 5px 40px;
+	/* margin-top:-15px;*/   
+    background-image: url(../images/rss.gif);
+	background-position: left;
+	background-repeat: no-repeat;
+	color: #d58c00;
+}
+a#rssCom, a#rssCom:hover {
+	right:10px;
+}
+a#rssPers, a#rssPers:hover {
+	right:10px;
+	margin-top:30px;
+	font-weight:bold;
+}
+/* ---- Commentaire slectionn pr modification ---- */
+.comSelected {
+	background-image:url(../images/comSelected.gif);
+	background-position:left;
+	background-repeat:no-repeat;
+	left:-10px;
+	padding-left: 8px;
+	border-left:solid 2px #C65C17;
+}
+/* ---- Info sur balises permises ds un commentaire ---- */
+#postInfo {
+	font-family: Helvetica, Arial;
+}
+/* ---- Pagination commentaire ---- */
+
+#pagComH, #pagComB {
+	margin: 15px 4px 10px 0px;
+	font-family: Helvetica, Arial;
+	text-align: right;
+	color: #4a1a00;
+}
+#pagComH a, #pagComB a {
+	background: #fdf9d4;
+	text-decoration: none;
+	color: #a2784d;
+}
+#pagComH a:hover, #pagComB a:hover {
+	color: #4a1a00;
+	text-decoration:none;
+}
+.pagCour {
+	color: #4a1a00;
+	text-decoration:underline;
+}
+/* ---- Flches pagination commentaire ---- */
+#flComPB img, #flComPH img, #flComSB img, #flComSH img {
+	margin-left : 5px;
+	margin-bottom: -5px;
+	margin-right: 10px;
+}
+a#flComPB:hover, a#flComPH:hover, a#flComSB:hover, a#flComSH:hover {
+	background-color:#fdf9d4;
+}
+/* ---- Images pour accs visionneuse Calames ---- */
+#couvImg,#couvImgDao 
+{   position:relative;
+	width:200px;
+}
+#couverture,#couvertureDao {
+    vertical-align:top;
+}
+#couverture a:hover,#couvertureDao a:hover {
+	cursor: pointer;
+}
+#couvP, #couvPDao
+{
+    position:absolute;
+    left:-20px;
+    top:80px;
+}
+#couvS, #couvSDao 
+{
+    position:absolute;
+    top:80px;    
+}
+#lnkAffVi, #lnkAffViDao {
+    position:relative;
+    left:-20px;
+}
+/*#couvP,#couvS
+{
+   width:100px;
+}*/
+
+.ongletCommentLink a {
+	left:-74px;
+	position:absolute;
+	width:50px;
+	height: 90px;
+	color: #222;
+	background-image: url(../images/onglet.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	padding-top: 35px;
+	/*padding-left: 3px;*/
+}
+
+
+.ongletComposantLink a {
+	left:-74px;
+	position:absolute;
+	width:50px;
+	height: 90px;
+	color: #222;
+	background-image: url(../images/onglet-composant.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	padding-top: 35px;
+	/*padding-left: 3px;*/
+}
+
+
+.i18n_nvlRecherche {}
+.i18n_modifRecherche{}
+
+
+#obtienPassTexte, #obtienUserTexte, #accederCompteTexte {
+	color: #6D941F;
+	font: 1.2em Helvetica, Arial, sans-serif, Geneva;
+	font-weight: bold;
+	position: relative;
+	top: -8px;
+}
+
+#modifyVosInfos {
+	color: #563737;
+	font: 1.2em Helvetica, Arial, sans-serif, Geneva;
+	font-weight: bold;
+	position: relative;
+	top: -8px;
+	padding-right: 10px;
+}
+
+#obtenirPasseButton {
+	padding-left: 8px;
+}
+
+#spComUser {
+	padding-left: 20px;
+}
+
+
+/* content pages formatting */
+
+#textPageContent {
+	padding: 10px;
+}
+
+.presentation p, ul, h1, h2 {margin:1%}
+.presentation {padding-bottom:3%}
+.presentation p {font-size :18px; text-align:justify;}
+.presentation h1 {color:#a24709;}
+.presentation h2 {color:#cc6633;}
+.presentation a {color:#2b78cc;}
+
+.fieldName {
+	font-weight: bold;
+}
+
+
+
+#usernameCell, .forgotPasswordValidationError {
+	display: block;	
+
+}
+#userNameTextBoxField, #captchaTextBoxField, #emailTextBoxField {
+	display: block;
+}
+
+#buttonCell {
+	float: none;
+
+}
+
+.recoverFormTable {
+	width: 780px;
+	
+}
+
+
+.recoverFormTable td{
+
+	float: left;
+}
+
+
+.recoverInput{
+	padding-right:6px;
+}
+
+/* .flecheVerteButton {
+	margin-left: 30px;
+} */
+
+/* Effectivement utiliss par l'export Visio-pdf*/
+.controlCRepository {
+	color: #C65C17;
+	width :150px;
+	line-height: 16px;
+	margin-left: 0px;
+	font-size:120%;
+	font-weight: bold;
+}
+.controlCInfos {
+	color: #C65C17;
+	width :150px;
+	line-height: 16px;
+	margin-left: 0px;
+	font-size:110%;
+	font-weight: bold;
+}
+.permalienC {
+text-decoration:underline;
+}
+.txtNbEnfC {
+	padding-left:10px;
+}
+.titleproper {
+	font-size:125%;
+	font-weight:bold;
+	color:#000000;
+}
+.titleproper-author {
+	font-size:110%;
+	color:#000000;
+}

@@ -1,4 +1,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+	
+	<!-- modele d'export publié sur le github public de l'Abes -->
+	
 	<xsl:output xmlns="http://www.w3.org/1999/xhtml"
 		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
 		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes"
@@ -13,9 +16,8 @@
 		<html>
 			<head>
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-				<!--<link rel="stylesheet" type="text/css"
-					href="http://joran.levant.abes.fr/pub/css/style-visio.css"/>-->
-				<!--ERM nouvel environnement-->
+				<!--mise à jour lien css dec 2024 par suite changement environnement serveurs-->
+				<!-- ccs est egalement publié sur le github public de l'Abes-->
 				<link rel="stylesheet" type="text/css"
 					href="https://calames.abes.fr/pub/css/style-visio.css"/>
 				<style type="text/css">
@@ -264,7 +266,7 @@
 				<xsl:call-template name="entrees"> </xsl:call-template>
 			</xsl:for-each>
 		</xsl:if>
-		<!--ERM septembre 2024 réécriture avec un choose pour éviter les if et décembre 2024 encodage des espaces pour éviter leur suppression éventuelle-->
+		<!--ERM septembre 2024 réécriture avec un choose pour éviter les if-->
 		<xsl:choose>
 			<xsl:when test="count(ead/archdesc/dsc/c) = 1">
 				<br/>
@@ -374,7 +376,7 @@
 															</xsl:if>
 															</xsl:if>
 															</xsl:template -->
-	<!-- recuperation unitid ou unittitle de l'ancetre du redondance -->
+	<!-- recuperation unitid popur constructon du lien url -->
 	<xsl:template match="@id">
 		<xsl:variable name="Permalien">
 			<xsl:text>https://www.calames.abes.fr/pub/ms/</xsl:text>
@@ -504,6 +506,7 @@
 		</i>
 	</xsl:template>
 	<!-- fin modifications -->
+	<!-- Ajouts Olga. L'appel des cote_unique, i.e. des cotes reconstruites Cote + Division(s), ne peut  PAS fonctionner : cela supposerait de faire appel à calames.js -->
 	<!--  <xsl:template match="did/unitid[@type='cote_unique']">
 			<div class="cote_actuelle">
 			<span id="coteUnique" class="controlC i18n_cote">Cote
@@ -1204,7 +1207,7 @@
 					</td>
 				</tr>
 			</xsl:for-each>
-			<!-- Ajouts pour geogname ROLE "lieu de production" dans un <c> ou un <archdesc> en août 2024 par ENO, pour mise en conformité avec les index de recherche de l'interface publique Calames -->
+			<!-- Ajouts pour geogname ROLE "lieu de production" dans un <c> ou un <archdesc> en août 2024 par ENO, pour mise en conformité avec l'interface publique -->
 			<xsl:for-each
 				select="./child::*[not(self::dsc)][not(self::c)]//geogname[@role = 'lieu de production']">
 				<tr>

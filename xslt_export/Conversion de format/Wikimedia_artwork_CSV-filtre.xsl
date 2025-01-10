@@ -1,4 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    
+    <!-- modele d'export publié sur le github public de l'Abes -->
+    
     <!-- Mapping export DC simple de l'EAD Calames vers template Artwork dans Pattypan 
             https://commons.wikimedia.org/wiki/Template:Artwork/doc                          
             creation octobre 2023 ERM-->
@@ -13,8 +16,7 @@
     <xsl:template match="/">
         <xsl:choose>
             <xsl:when test="$filtre">
-                <!--  BML 22/10/23: les intitulés de colonnes Wiki doivent être entièrement en minuscules pour pattypan-->
-                <!--  ERM 11/10/23: les intitulés de colonnes Wiki-->
+                <!--  Intitulés de colonnes Wiki - BML 22/10/23: les intitulés de colonnes Wiki doivent être entièrement en minuscules pour pattypan-->
                 <!-- ERM 21/02/19 pour que l'entité retour chariot, et de manière générale toute entité, puisse être prise en compte dans le module d'export de Calames,  il faut au moins un caractère devant lui => le mettre dans l'intitulé de la dernière colonne, qui doit donc être systématiquement unique, non répétable : "&#xD;-->
                 <!--saut de colonne   &#x9;-->
                 <xsl:text>"path"&#x9;"name"&#x9;"author"&#x9;"title"&#x9;"description"&#x9;"date"&#x9;"medium"&#x9;"dimensions"&#x9;"accession number"&#x9;"references"&#x9;"source"&#x9;"permission"&#x9;"categories"&#xD;</xsl:text>
@@ -194,8 +196,7 @@ Cas avec plusieurs auteurs : {{cite web |author=NORMAL de <corpname> ou <persnam
         </xsl:for-each>
         <xsl:text>"&#x9;</xsl:text>
         <!-- 6 - Date -->
-        <!--
- [c exporté > c ascendant le + proche > archdesc]
+        <!-- [c exporté > c ascendant le + proche > archdesc] 
 c/did//untidate+
 archdesc/did//unidate+-->
         <xsl:text>"</xsl:text>
@@ -330,13 +331,14 @@ archdesc/did/physdesc/dimensions+
         <!-- 10 - References -->
         <!--  c exporté/@id 
 attribut @title et @href du dao/daogrp [c exporté]
-si @title http://www.calames.abes.fr/pub/#details?id=XXXX - dao/@title ou daogrp/daoloc[@role='rebond']/@title : dao/@href ou daogrp/daoloc[@role='rebond']/@href
+si @title https://www.calames.abes.fr/pub/#details?id=XXXX - dao/@title ou daogrp/daoloc[@role='rebond']/@title : dao/@href ou daogrp/daoloc[@role='rebond']/@href
 sinon
-http://www.calames.abes.fr/pub/#details?id=@id et numérisation disponible en ligne :  dao/@href ou daogrp/daoloc[@role='rebond']/@href
+https://www.calames.abes.fr/pub/#details?id=@id et numérisation disponible en ligne :  dao/@href ou daogrp/daoloc[@role='rebond']/@href
 si abscence de dao/daogrp pour le c exporté
- "Description complète de ce document dans Calames : http://www.calames.abes.fr/pub/ms/Calames-XXXX" ; NB racine propre à l'applicaton (pub/#details?id=) remplacé par l'url pérenne (pub/ms/)le 08/04/2024 -->
+ "Description complète de ce document dans Calames : https://www.calames.abes.fr/pub/ms/Calames-XXXX" ; NB racine propre à l'applicaton (pub/#details?id=) remplacé par l'url pérenne (pub/ms/)le 08/04/2024 -->
         <!-- BML le 29/11/2023 modificaton pour ne prendre en compte que les daoloc de role "rebond" -->
-        <xsl:text>"Description complète de ce document dans Calames : http://www.calames.abes.fr/pub/ms/</xsl:text>
+        <!-- ENO le 28/06/2024 modificaton des url Calames en commentaire et dans les variables pour prendre en compte passage en https de Calames -->
+        <xsl:text>"Description complète de ce document dans Calames : https://www.calames.abes.fr/pub/ms/</xsl:text>
         <xsl:value-of select="./@id"/>
         <xsl:if test="dao[@href] or daogrp/daoloc[@role = 'rebond'][@href]">
             <xsl:choose>

@@ -1,4 +1,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    
+        <!-- modele d'export publié sur le github public de l'Abes -->
+    
+    
     <!-- Mapping export DC simple Calames vers template Book dans Pattypan 
             https://commons.wikimedia.org/wiki/Template:Book/doc                          
             creation octobre 2023 ERM-->
@@ -293,13 +297,14 @@ archdesc/did/langmaterial/language/@langcode    -->
         <!-- 10 - References -->
         <!-- c exporté/@id 
 attribut @title et @href du dao/daogrp [c exporté]
-si @title http://www.calames.abes.fr/pub/#details?id=XXXX - dao/@title ou daogrp/daoloc[@role='rebond']/@title : dao/@href ou daogrp/daoloc[@role='rebond']/@href
+si @title https://www.calames.abes.fr/pub/#details?id=XXXX - dao/@title ou daogrp/daoloc[@role='rebond']/@title : dao/@href ou daogrp/daoloc[@role='rebond']/@href
 sinon
-http://www.calames.abes.fr/pub/#details?id=@id et numérisation disponible en ligne :  dao/@href ou daogrp/daoloc[@role='rebond']/@href
+https://www.calames.abes.fr/pub/#details?id=@id et numérisation disponible en ligne :  dao/@href ou daogrp/daoloc[@role='rebond']/@href
 si abscence de dao/daogrp pour le c exporté
- "Description complète de ce document dans Calames : http://www.calames.abes.fr/pub/ms/Calames-XXXX" ; NB racine propre à l'applicaton (pub/#details?id=) remplacé par l'url pérenne (pub/ms/)le 08/04/2024-->
+ "Description complète de ce document dans Calames : https://www.calames.abes.fr/pub/ms/Calames-XXXX" ; NB racine propre à l'applicaton (pub/#details?id=) remplacé par l'url pérenne (pub/ms/)le 08/04/2024-->
         <!-- BML le 29/11/2023 modificaton pour ne prendre en compte que les daoloc de role "rebond" -->
-        <xsl:text>"Description complète de ce document dans Calames : http://www.calames.abes.fr/pub/ms/</xsl:text>
+        <!-- ENO le 28/06/2024 modification des url en commentaire et dans les variables pour prendre en compte passage en https de Calames -->
+        <xsl:text>"Description complète de ce document dans Calames : https://www.calames.abes.fr/pub/ms/</xsl:text>
         <xsl:value-of select="./@id"/>
         <xsl:if test="dao[@href] or daogrp/daoloc[@role = 'rebond'][@href]">
             <xsl:choose>
