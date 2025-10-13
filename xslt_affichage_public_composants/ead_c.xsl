@@ -65,9 +65,8 @@
 		<xsl:value-of select="."/>
 		<br/>
 	</xsl:template>
-	<!-- modif 19 janvier 08 -->
-<!-- remodifié -->
-	<xsl:template match="physloc">
+	<!-- modif 19 janvier 08 + octobre 2024 ajout condition audience-->
+	<xsl:template match="physloc[not(@audience='internal')]">
 		<div class="physloc">
 			<span class="controlC i18n_lieuConservation">Lieu de conservation</span> : 
 		<xsl:apply-templates/>
@@ -116,6 +115,7 @@
 		<!-- mis en commentaire par olga : remplace par cote_unique
 		<xsl:apply-templates select="did/unitid[@type='cote_actuelle' or @type='cote']"/>
 		 fin commente par olga-->
+		<!-- ajout condition sur audience internal des éléments où num de gestion : physloc, acquinfo, processinfo, otherfindaid -->
 		<xsl:apply-templates select="did/unitid[@type='cote_unique']"/>
 		<xsl:apply-templates select=".//unitdate" mode="bloc"/>
 		<xsl:apply-templates select="did/langmaterial"/>
@@ -129,11 +129,11 @@
 		<xsl:apply-templates select="bioghist"/>
 		<xsl:apply-templates select="note[@type = 'provenance']"/>
 		<xsl:apply-templates select="custodhist"/>
-		<xsl:apply-templates select="acqinfo"/>
+		<xsl:apply-templates select="acqinfo[not(@audience='internal')]"/>
         		<xsl:apply-templates select="accruals" />
 		<xsl:apply-templates select="did/unitid[@type='ancienne_cote']"/>
         		<xsl:apply-templates select="phystech" />
-		<xsl:apply-templates select="did/physloc"/>
+		<xsl:apply-templates select="did/physloc[not(@audience='internal')]"/>
 		<xsl:apply-templates select="did/container"/>
 		<xsl:apply-templates select="accessrestrict"/>
 		<xsl:apply-templates select="altformavail"/>
@@ -142,10 +142,10 @@
 		<xsl:apply-templates select="separatedmaterial"/>
 		<xsl:apply-templates select="relatedmaterial"/>
 		<xsl:apply-templates select="originalsloc"/>
-		<xsl:apply-templates select="otherfindaid"/>
+		<xsl:apply-templates select="otherfindaid[not(@audience='internal')]"/>
 		<xsl:apply-templates select="bibliography"/>
 		<xsl:apply-templates select="bibref[@href]"/>
-		<xsl:apply-templates select="processinfo"/>
+		<xsl:apply-templates select="processinfo[not(@audience='internal')]"/>
         		<xsl:apply-templates select="appraisal" />
 		<xsl:apply-templates select="dao"/>
 		<xsl:apply-templates select="daogrp[not(daoloc[@role='vignette'])]" />
@@ -428,7 +428,7 @@
 		</xsl:otherwise>
 	</xsl:choose>-->
 	</xsl:template>
-<!-- Ajout de la condition internal pour masquer des daodesc/p/num avec l'identifiant du <c> dans la bibnum + gestion nouvelle valeur de ROLE de <daoloc> "manifest_iiif" + changement affichage par défaut en absence de daoloc oudao TITLE  par BML 27/03/2024 -->
+<!-- Ajout de la condition internal pour masquer des daodesc/p/num avec l'identifiant du <c> dans la bibnum + gestion nouvelle valeur de ROLE de <daoloc> "iiif_manifest" + changement affichage par défaut en absence de daoloc oudao TITLE  par BML 27/03/2024 ; mise à jour forme de la valeur "iiif_manifest" pour s'aligner sur FA le 13/10/2025 par BML-->
 	<xsl:template match="dao">
 		<xsl:if test="@href"><div class="rebond">
 			<span class="controlC i18n_dao">Version(s) numérique(s)</span> :
@@ -462,7 +462,7 @@
 				<!--<div><span><xsl:value-of select="daodesc/p" /></span> - </div>-->  
 				<xsl:apply-templates />
 			</xsl:if>
-		<xsl:for-each select="daoloc[@role='rebond' or @role='manifest_iiif']">
+		<xsl:for-each select="daoloc[@role='rebond' or @role='iiif_manifest']">
 			
 			<div>
 				<!--<span><xsl:value-of select="daodesc/p" /></span> -->
@@ -612,13 +612,6 @@
 <xsl:with-param name="property">dcterms:contributor</xsl:with-param>
 <xsl:with-param name="cl">i18n_imprimeurEditeur</xsl:with-param>
 </xsl:call-template>
-			<!-- Editeur commercial (màj déc. 2014) -->
-			<xsl:call-template name="CTRLaccess">
-				<xsl:with-param name="role">650</xsl:with-param>
-				<xsl:with-param name="lib">Editeur commercial</xsl:with-param>
-				<xsl:with-param name="property">dcterms:contributor</xsl:with-param>
-				<xsl:with-param name="cl">i18n_editeurComm</xsl:with-param>
-			</xsl:call-template>
 			<!-- 110 -->
 			<xsl:call-template name="CTRLaccess">
 				<xsl:with-param name="role">110</xsl:with-param>
